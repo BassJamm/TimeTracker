@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src-elem 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com" />
+    <link rel="stylesheet" href="./styles.css">
+    <title>Time Tracker</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Time Tracker</h1>
+    </header>
+
+    <div class="container">
+        <div class="left-container">
+            <nav>
+                <a href="#" id="exportTasks">Export Tasks</a>
+                <label for="fileInput">Upload Tasks</label>
+                <input type="file" id="fileInput" accept=".csv">
+            </nav>
+            <div id="toastNotification" class="toast hide">
+                <span id="toastMessage"></span>
+            </div>
+        </div>
+
+        <div class="right-container">
+            <section id="addTask">
+                <h2>Add Task</h2>
+                <form>
+                    <label for="taskName">Task Name:</label>
+                    <input type="text" id="taskName" name="taskName" required>
+                    <button type="button" id="startButton">Add Task</button>
+                </form>
+            </section>
+            <div id="timer">
+                <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+                <button id="stopButton">Stop</button>
+            </div>
+            <section id="taskList">
+                <h2>Task List</h2>
+                <ul id="listContainer" placeholder="No tasks yet, add one to get started.">
+                </ul>
+            </section>
+        </div>
+
+    </div>
+    <script src="./script.js" defer></script>
+
+</html>
