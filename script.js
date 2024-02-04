@@ -42,7 +42,6 @@ startButton.addEventListener("click", function () {
   // Start the timer by calling updateTimer every second
   startTime = new Date();
   timerInterval = setInterval(updateTimer, 1000);
-  console.log(timerInterval);
 });
 
 stopButton.addEventListener("click", function () {
@@ -62,7 +61,6 @@ stopButton.addEventListener("click", function () {
   // Create span elements for task details
   let taskSpan = document.createElement("span");
   taskSpan.textContent = taskInput.value;
-  console.log(taskInput.value);
 
   let durationSpan = document.createElement("span");
   durationSpan.textContent = hours + ':' + minutes + ':' + seconds;
@@ -114,7 +112,7 @@ function stripHtmlTags(html) {
 function exportTasks() {
   // Get the task list items
   var taskListItems = tasklist.getElementsByTagName("li");
-
+  console.log(taskListItems);
   // Prepare the CSV content with header and each task on a new line
   var csvContent = "Task,Start Time,End Time,Duration\n";
 
@@ -160,19 +158,6 @@ function exportTasks() {
 
   // Remove the anchor element from the body
   document.body.removeChild(a);
-}
-
-// Function to show a toast notification
-function showToast(message) {
-  const toastNotification = document.getElementById("toastNotification");
-  const toastMessage = document.getElementById("toastMessage");
-
-  toastMessage.textContent = message;
-  toastNotification.classList.add("show");
-
-  setTimeout(function () {
-    toastNotification.classList.remove("show");
-  }, 3000); // Hide the toast after 3 seconds (adjust as needed)
 }
 
 // Function to handle file upload
