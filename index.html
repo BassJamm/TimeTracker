@@ -4,8 +4,10 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self'; style-src-elem 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';
+        script-src 'self' https://cdnjs.cloudflare.com;
+        style-src-elem 'self' https://fonts.googleapis.com;
+        font-src https://fonts.gstatic.com" />
     <link rel="stylesheet" href="./styles.css">
     <title>Time Tracker</title>
 </head>
@@ -19,36 +21,82 @@
     <div class="container">
         <div class="left-container">
             <nav>
-                <a href="#" id="exportTasks">Export Tasks</a>
-                <label for="fileInput">Upload Tasks</label>
-                <input type="file" id="fileInput" accept=".csv">
+                <a href="#" id="home">
+                    <span class="material-symbols-outlined">
+                        logo_dev
+                    </span>
+                </a>
+                <hr>
+                <a href="#" id="home">
+                    <span class="material-symbols-outlined">
+                        home
+                    </span>
+                </a>
+                <a href="#" id="exportTasks"><span class="material-symbols-outlined">
+                        ios_share
+                    </span>
+                </a>
+                <a href="#" id="reporting">
+                    <span class="material-symbols-outlined">
+                        pie_chart
+                    </span>
+                </a>
             </nav>
-            <div id="toastNotification" class="toast hide">
-                <span id="toastMessage"></span>
-            </div>
         </div>
 
-        <div class="right-container">
+        <div class="centre-container">
+
             <section id="addTask">
-                <h2>Add Task</h2>
+                <h2>Add Time Spent</h2>
                 <form>
                     <label for="taskName">Task Name:</label>
                     <input type="text" id="taskName" name="taskName" required>
-                    <button type="button" id="startButton">Add Task</button>
+                    <select name="selectProject" id="selectProject">
+                        <option>Project A</option>
+                    </select>
+                    <input type="time" id="startTime" name="startTime">
+                    <input type="time" id="endTime" name="endTime">
+                    <button type="button" id="startButton"><span class="material-symbols-outlined">
+                            add
+                        </span>
+                        Add Task
+                    </button>
                 </form>
             </section>
-            <div id="timer">
-                <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
-                <button id="stopButton">Stop</button>
-            </div>
+            <hr>
             <section id="taskList">
                 <h2>Task List</h2>
                 <ul id="listContainer" placeholder="No tasks yet, add one to get started.">
+                    <li>
+                        <span>Project A</span>
+                        <span>11:32:17</span>
+                        <span>11:32:19</span>
+                        <span>0:0:2</span>
+                        <button class="deleteButton">Delete</button>
+                    </li>
+                    <li>
+                        <span>Project A</span>
+                        <span>11:32:17</span>
+                        <span>11:32:19</span>
+                        <span>0:0:2</span>
+                        <button class="deleteButton">Delete</button>
+                    </li>
                 </ul>
             </section>
         </div>
 
+        <div class="right-container">
+            <div id="timeSpent">
+                <h2>Time Spent</h2>
+                <div class="timeSpentProjectA">
+                    <canvas id="myChart"></canvas>
+                </div>
+
+            </div>
+        </div>
+
     </div>
     <script src="./script.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
 </html>
